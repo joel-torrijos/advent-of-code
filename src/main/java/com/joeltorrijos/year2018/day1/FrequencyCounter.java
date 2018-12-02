@@ -19,12 +19,11 @@ public class FrequencyCounter {
 		
 		String fileName = "src/main/resources/2018/input.txt";
 
-
 		System.out.println(partOne(fileName));
 		System.out.println(partTwo(fileName));
 	}
 	
-	public static Integer parseInt(String line) {
+	public static Integer toInt(String line) {
 		if(line.startsWith("+")) 
 			return Integer.parseInt(line.substring(1));
 		else 
@@ -35,7 +34,7 @@ public class FrequencyCounter {
 	public static Integer partOne(String uri) {
 		Integer result = 0;
 		try(Stream<String> stream = Files.lines(Paths.get(uri))) {
-			result = stream.map(FrequencyCounter::parseInt)
+			result = stream.map(FrequencyCounter::toInt)
 						   .reduce(0, Integer::sum);
 			
 			return result;
@@ -49,8 +48,6 @@ public class FrequencyCounter {
 	
 	
 	public static Integer partTwo(String fileName){
-		// TODO make it a stream. Make a stream repeat if result is not found. 
-		// elegant way of terminating
 		Integer input;
 		Set<Integer> resultingFrequencies = new HashSet<>();
 		Integer resultingFrequency = 0;
@@ -63,11 +60,9 @@ public class FrequencyCounter {
 				fileReader = new Scanner(new File(fileName));
 				while (fileReader.hasNext()) {
 					String line = fileReader.nextLine();
-					input = parseInt(line);
-
-					resultingFrequency += input;
-
 					
+					resultingFrequency += toInt(line);
+
 					if(!resultingFrequencies.add(resultingFrequency)) {
 						notFound = false;
 						return resultingFrequency;
@@ -82,9 +77,7 @@ public class FrequencyCounter {
 			
 		} while(notFound);
 		
-		
 		return resultingFrequency;
-	
 	}
 
 }

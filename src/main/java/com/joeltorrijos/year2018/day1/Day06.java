@@ -44,25 +44,25 @@ public class Day06 {
 			int maxY = Collections.max(Arrays.asList(yCoordinates));
 			
 			
-			Node[][] grid = new Node[maxY+1][maxX+1];
+			Point[][] grid = new Point[maxY+1][maxX+1];
 			Map<Integer, Integer> closest = new HashMap<>();
 			
 			for(int i = 0; i < yCoordinates.length; i++) {
-				grid[yCoordinates[i]][xCoordinates[i]] = new Node(i,0);
+				grid[yCoordinates[i]][xCoordinates[i]] = new Point(i,0);
 				closest.put(i, closest.getOrDefault(i, 1));
 			}
 		
 			for(int j = 0; j < xCoordinates.length; j++)
 			{
-				int currentNodeX = xCoordinates[j];
-				int currentNodeY = yCoordinates[j];
+				int currentPointX = xCoordinates[j];
+				int currentPointY = yCoordinates[j];
 				
 				for(int y = 0; y < maxY +1; y++) {
 					for(int x = 0; x < maxX +1 ; x++) {
-						int distance = Math.abs(currentNodeY - y) + Math.abs(currentNodeX - x);
+						int distance = Math.abs(currentPointY - y) + Math.abs(currentPointX - x);
 						
 						if( grid[y][x] == null) {
-							grid[y][x] = new Node(j, distance);
+							grid[y][x] = new Point(j, distance);
 							closest.put(j, closest.getOrDefault(j, 0)+1);
 						} else {
 							Integer previous = grid[y][x].getClosest();
@@ -119,23 +119,23 @@ public class Day06 {
 			int maxY = Collections.max(Arrays.asList(yCoordinates));
 			
 			
-			Node[][] grid = new Node[maxY+1][maxX+1];
+			Point[][] grid = new Point[maxY+1][maxX+1];
 
 			for(int i = 0; i < yCoordinates.length; i++) {
-				grid[yCoordinates[i]][xCoordinates[i]] = new Node(i,0, 0);
+				grid[yCoordinates[i]][xCoordinates[i]] = new Point(i,0, 0);
 			}
 		
 			for(int j = 0; j < xCoordinates.length; j++)
 			{
-				int currentNodeX = xCoordinates[j];
-				int currentNodeY = yCoordinates[j];
+				int currentPointX = xCoordinates[j];
+				int currentPointY = yCoordinates[j];
 				
 				for(int y = 0; y < maxY +1; y++) {
 					for(int x = 0; x < maxX +1 ; x++) {
-						int distance = Math.abs(currentNodeY - y) + Math.abs(currentNodeX - x);
+						int distance = Math.abs(currentPointY - y) + Math.abs(currentPointX - x);
 						
 						if( grid[y][x] == null) {
-							grid[y][x] = new Node(j, distance, distance);
+							grid[y][x] = new Point(j, distance, distance);
 						} else {
 							int totalDistance = grid[y][x].getTotalDistance() + distance;
 							grid[y][x].setTotalDistance(totalDistance); 
@@ -166,7 +166,7 @@ public class Day06 {
 
 }
 
-class Node {
+class Point {
 	
 	private int closest;
 	private int distance;
@@ -174,12 +174,12 @@ class Node {
 	
 	
 
-	public Node(int closest, int distance) {
+	public Point(int closest, int distance) {
 		this.closest = closest;
 		this.distance = distance;
 	}
 
-	public Node(int closest, int distance, int totalDistance) {
+	public Point(int closest, int distance, int totalDistance) {
 		super();
 		this.closest = closest;
 		this.distance = distance;
@@ -212,7 +212,7 @@ class Node {
 
 	@Override
 	public String toString() {
-		return "Node [closest=" + closest + ", distance=" + distance + "]";
+		return "Point [closest=" + closest + ", distance=" + distance + "]";
 	}
 	
 }

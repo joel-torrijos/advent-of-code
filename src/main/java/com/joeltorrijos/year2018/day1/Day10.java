@@ -68,9 +68,9 @@ public class Day10 {
 					
 					// Setup Grid
 					char[][] grid = new char[maxY][maxX];
-					for(char[] row: grid) {
-						Arrays.fill(row, '.');
-					}
+					
+					Arrays.stream(grid).forEach(row -> Arrays.fill(row, '.'));
+
 					points.forEach(point -> grid[point.currentY][point.currentX] = '#');
 							
 					// Display
@@ -114,11 +114,6 @@ public class Day10 {
 		public void move() {
 			this.currentX += this.velocityX;
 			this.currentY += this.velocityY;
-		}
-		
-		public void moveBack() {
-			this.currentX -= this.velocityX;
-			this.currentY -= this.velocityY;
 		}
 
 		@Override

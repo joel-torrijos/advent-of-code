@@ -1,7 +1,7 @@
 package com.joeltorrijos.year2018.day1;
 
-import static com.joeltorrijos.year2018.day1.Day07a.partOne;
-//import static com.joeltorrijos.year2018.day1.Day07.partTwo;
+import static com.joeltorrijos.year2018.day1.Day07.partOne;
+import static com.joeltorrijos.year2018.day1.Day07.partTwo;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;
@@ -16,6 +16,6 @@ public class Day07Test {
 	
 	@Test
 	void partTwoTest() {
-//		assertEquals(16, partTwo(fileName));		
+		assertEquals(15, partTwo(fileName, 2, 0));		
 	}
 }

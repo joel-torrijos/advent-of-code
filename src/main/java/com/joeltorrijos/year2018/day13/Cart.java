@@ -63,18 +63,18 @@ public class Cart {
 
 	public boolean move(int[] newCoordinates, Tile origin, Tile destination) {
 		
-		origin.cart = null;
+		origin.setCart(null);
 		
 		// Check if destination is empty
-		if(destination.cart == null) {
+		if(destination.getCart() == null) {
 			x = newCoordinates[0];
 			y = newCoordinates[1];
-			destination.cart = this;
+			destination.setCart(this);
 			this.changeDirection(destination);
 		} else {
 			setCrashed(true);
-			destination.cart.setCrashed(true);
-			destination.cart = null;			
+			destination.getCart().setCrashed(true);
+			destination.setCart(null);		
 			return false;
 		}
 		
@@ -106,7 +106,7 @@ public class Cart {
 	}
 	
 	public void changeDirection(Tile destination) {
-		if (destination.type == TrackType.INTERSECTION) {
+		if (destination.getType() == TrackType.INTERSECTION) {
 			IntersectionDirection currentIntersectionDir = intersectionDirs.removeFirst();
 			
 			if(currentIntersectionDir == IntersectionDirection.LEFT) {
@@ -119,7 +119,7 @@ public class Cart {
 			
 			intersectionDirs.addLast(currentIntersectionDir);
 			
-		} else if (destination.type == TrackType.LEFT_CURVE) {
+		} else if (destination.getType() == TrackType.LEFT_CURVE) {
 			if(currentDirection == Direction.RIGHT) {
 				currentDirection = currentDirection.left();
 			} else if(currentDirection == Direction.UP) {
@@ -130,7 +130,7 @@ public class Cart {
 				currentDirection = currentDirection.right();
 			}
 			
-		} else if (destination.type == TrackType.RIGHT_CURVE) {
+		} else if (destination.getType() == TrackType.RIGHT_CURVE) {
 			if(currentDirection == Direction.RIGHT) {
 				currentDirection = currentDirection.right();
 			} else if(currentDirection == Direction.UP) {

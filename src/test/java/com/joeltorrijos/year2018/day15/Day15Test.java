@@ -10,14 +10,16 @@ class Day15Test {
 	
 	@Test
 	void test() {
-		String fileName = "src/main/resources/2018/day15/day15-test-input2.txt";
-//		assertEquals(36334, partOne(fileName));
+		String fileName = "src/main/resources/2018/day15/attack-test-input.txt";
+		assertEquals(27730, partOne(fileName));
+		fileName = "src/main/resources/2018/day15/day15-test-input2.txt";
+		assertEquals(36334, partOne(fileName));
 		fileName = "src/main/resources/2018/day15/day15-test-input3.txt";
-//		assertEquals(39514, partOne(fileName));
+		assertEquals(39514, partOne(fileName));
 		fileName = "src/main/resources/2018/day15/day15-test-input4.txt";
-//		assertEquals(27755, partOne(fileName));
-//		fileName = "src/main/resources/2018/day15/day15-test-input5.txt";
-//		assertEquals(28944, partOne(fileName));
+		assertEquals(27755, partOne(fileName));
+		fileName = "src/main/resources/2018/day15/day15-test-input5.txt";
+		assertEquals(28944, partOne(fileName));
 		fileName = "src/main/resources/2018/day15/day15-test-input6.txt";
 		assertEquals(18740, partOne(fileName));
 	}

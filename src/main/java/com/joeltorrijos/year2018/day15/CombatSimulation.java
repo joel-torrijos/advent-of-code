@@ -109,7 +109,6 @@ public class CombatSimulation {
 				
 				if(x == y || (x == 1 && y == -1) || (x == -1 && y == 1))
 				{
-//					System.out.println("diagonal ignored");
 					continue;
 				}
 				
@@ -121,10 +120,8 @@ public class CombatSimulation {
 					Tile potential = tiles[currentY+y][currentX + x];
 					
 					// Check 
-//					if(potential.getTileType() == TileType.OPEN_CAVERN) {
 					if(predicate.test(potential)) {
 						adjacentTiles.add(new Point(newX, newY));
-//						System.out.println(x + "," + y);
 					}
 				}
 			}			
@@ -154,7 +151,7 @@ public class CombatSimulation {
 			System.out.println("========== TURN " + turn + "================");
 //			units.forEach( unit -> System.out.println("\t" + unit.getCoordinates()));
 			
-			units.sort(Comparator.comparing(Unit::getX).thenComparing(Unit::getY));
+			units.sort(Comparator.comparing(Unit::getY).thenComparing(Unit::getX));
 //			System.out.println("After Sort");
 //			units.forEach( unit -> System.out.println("\t" + unit.getCoordinates()));
 			for(Unit unit: units) {
@@ -202,11 +199,6 @@ public class CombatSimulation {
 					}
 					
 					
-	//				.forEach(System.out::println);
-					
-					// TODO Get adjacent enemies
-					// TODO Get lowest HP then by reading order
-					// TODO Remove if dead
 					
 				} else {
 					
@@ -267,7 +259,6 @@ public class CombatSimulation {
 				
 				
 				System.out.println();
-	//			findShortestPath(unit.getCoordinates(), goblin.getCoordinates());
 			}
 			
 		
@@ -276,7 +267,6 @@ public class CombatSimulation {
 		System.out.println();
 		
 		System.out.println("After Turn " + turn);
-//		units.stream().sorted(Comparator.comparing(Unit::getY).thenComparing(Unit::getX)).forEach(System.out::println);
 		units.forEach(System.out::println);
 		System.out.println("Change" );
 		units.sort(Comparator.comparing(Unit::getY).thenComparing(Unit::getX));

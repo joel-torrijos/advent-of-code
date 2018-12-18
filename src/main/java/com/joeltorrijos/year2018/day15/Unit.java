@@ -1,6 +1,7 @@
 package com.joeltorrijos.year2018.day15;
 
 import java.awt.Point;
+import java.util.function.Predicate;
 
 public abstract class Unit {
 	private Point coordinates;
@@ -67,10 +68,14 @@ public abstract class Unit {
 	}
 	
 	public boolean isDead() {
-		return hp <= 0 && coordinates == null;
+		return hp <= 0;
 	}
 	
 	public boolean isAlive() {
-		return hp > 0 && coordinates != null;
+		return hp > 0;
 	}
+	
+	public abstract boolean isEnemy(Unit unit);
+	
+	public abstract Predicate<Tile> hasAdjacentEnemy();
 }

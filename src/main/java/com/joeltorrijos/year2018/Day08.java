@@ -1,4 +1,4 @@
-package com.joeltorrijos.year2018.day1;
+package com.joeltorrijos.year2018;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -61,7 +61,6 @@ public class Day08 {
 			root.buildTree2(index, root);
 			
 			System.out.println(root.value()); 
-//			buildTree(index, roo);
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -79,7 +78,6 @@ public class Day08 {
 			index = buildTree(index);
 		}
 		for(int i = 0; i < numOfMetadata; i++) {
-//			System.out.println(nums[i]);
 			total += nums[index + i];
 		}
 		
@@ -97,7 +95,6 @@ public class Day08 {
 			
 			for(int i = 0; i < numOfChildren; i++) {
 				TreeNode child = new TreeNode();
-//				children.add(child);
 				index = buildTree(index);
 			}
 			for(int i = 0; i < numOfMetadata; i++) {
@@ -111,7 +108,6 @@ public class Day08 {
 		public int buildTree2(int index, TreeNode node) {
 			int numOfChildren = nums[index++];
 			int numOfMetadata = nums[index++];
-//			System.out.println("Light");
 			
 			for(int i = 0; i < numOfChildren; i++) {
 				TreeNode child = new TreeNode();
@@ -121,26 +117,20 @@ public class Day08 {
 			
 			for(int i = 0; i < numOfMetadata; i++) {
 				node.metadata.add(nums[index + i] );
-//				System.out.println(index);
 				if(numOfChildren == 0) {
 					node.value += nums[index + i];
 				} else {
-//					System.out.println("children: " + children.size());
 					if(nums[index + i] <= children.size()) {
 						System.out.print(nums[index + i] + "+ ");
 						int temp = children.get((nums[index + i] -1)).value;
-//						System.out.println("TEMP " + temp);
 						node.value += temp;
 					} else {
 						node.value += 0;
 					}
 				}
-//				total += nums[index + i];
 			}
 			System.out.println();
-			
-//			System.out.println("index " + index + ", value " + value);
-			
+						
 			return index + numOfMetadata;
 		}
 		
@@ -154,13 +144,11 @@ public class Day08 {
 				for(Integer data: metadata) {
 					if(data <= children.size()) {
 						int temp = children.get(data -1).value;
-//					System.out.println("TEMP " + temp);
 						value += children.get(data -1).value();
 					} else {
 						value += 0;
 					}
 				}
-//				System.out.println("children: " + children.size());
 			}
 			
 			return value;

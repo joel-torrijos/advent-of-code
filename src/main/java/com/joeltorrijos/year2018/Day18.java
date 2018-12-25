@@ -1,4 +1,4 @@
-package com.joeltorrijos.year2018.day1;
+package com.joeltorrijos.year2018;
 
 import java.awt.Point;
 import java.io.IOException;

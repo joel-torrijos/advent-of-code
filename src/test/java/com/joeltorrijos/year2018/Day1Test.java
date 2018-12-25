@@ -1,7 +1,7 @@
-package com.joeltorrijos.year2018.day1;
+package com.joeltorrijos.year2018;
 
-import static com.joeltorrijos.year2018.day1.FrequencyCounter.partOne;
-import static com.joeltorrijos.year2018.day1.FrequencyCounter.partTwo;
+import static com.joeltorrijos.year2018.FrequencyCounter.partOne;
+import static com.joeltorrijos.year2018.FrequencyCounter.partTwo;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.BeforeClass;

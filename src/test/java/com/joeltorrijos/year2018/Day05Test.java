@@ -1,7 +1,7 @@
-package com.joeltorrijos.year2018.day1;
+package com.joeltorrijos.year2018;
 
-import static com.joeltorrijos.year2018.day1.Day05.partOne;
-import static com.joeltorrijos.year2018.day1.Day05.partTwo;
+import static com.joeltorrijos.year2018.Day05.partOne;
+import static com.joeltorrijos.year2018.Day05.partTwo;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.jupiter.api.Test;

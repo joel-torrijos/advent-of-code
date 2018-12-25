@@ -1,4 +1,4 @@
-package com.joeltorrijos.year2018.day1;
+package com.joeltorrijos.year2018;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,8 +27,6 @@ public class Day06 {
 	}
 	
 	public static int partOne(String fileName) {
-	
-		int result = 0;
 		
 		try(Stream<String> stream = Files.lines(Paths.get(fileName))) {
 			

@@ -1,4 +1,4 @@
-package com.joeltorrijos.year2018.day1;
+package com.joeltorrijos.year2018;
 
 import java.io.IOException;
 import java.nio.file.Files;

@@ -35,8 +35,5 @@ public class InstructionPointer {
 	public String toString() {
 		return "InstructionPointer [registers=" + Arrays.toString(registers) + ", boundRegister=" + boundRegister + "]";
 	}
-	
-	
-
 
 }

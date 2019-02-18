@@ -22,11 +22,10 @@ public class Day02 {
 	
 	public static int partOne(String fileName) {
 
-		try {
+		try (Scanner fileReader = new Scanner(new File(fileName))) {
+			
 			Map<Integer, Integer> resultMap = new HashMap<>();
 			Map<Character, Integer> lineResult = new HashMap<>();
-			
-			Scanner fileReader = new Scanner(new File(fileName));
 			
 			while (fileReader.hasNext()) {
 				String line = fileReader.nextLine();
@@ -45,8 +44,6 @@ public class Day02 {
 				
 				lineResult.clear();
 			}
-			
-			fileReader.close();
 
 			return resultMap.get(2) * resultMap.get(3);
 			
@@ -93,6 +90,7 @@ public class Day02 {
 		} catch(IOException e) {
 			e.printStackTrace();
 		}
+		
 		return "";
 	}
 
